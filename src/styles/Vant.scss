@@ -1,0 +1,26 @@
+.ant-menu-item {
+  &::after {
+    content: "";
+    display: none;
+  }
+}
+
+.ant-menu {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  z-index: 9;
+  overflow: hidden !important;
+
+}
+
+.ant-menu-sub {
+  width: 222px;
+}
+
+.ant-input {
+  border-radius: 5px !important;
+}
+.btn1 {
+  background: #139895 !important;
+}
