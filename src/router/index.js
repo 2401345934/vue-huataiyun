@@ -31,7 +31,6 @@ const routes = [
         },
         component: () => import("@/views/Equipment/index.vue")
       },
-
       {  //配置
         path: "/configure",
         name: "Configure",
@@ -91,7 +90,31 @@ const routes = [
     name: "Setuse",
     component: () => import("@/views/Setuse/index.vue")
   },
-
+  {  //控制列表
+    path: "/conlist",
+    name: "Conlist",
+    component: () => import("@/views/Conlist/index.vue")
+  },
+  {  //配置列表
+    path: "/details",
+    name: "Details",
+    component: () => import("@/views/Details/index.vue")
+  },
+  {  //新增设备
+    path: "/add",
+    name: "Add",
+    component: () => import("@/views/Add/index.vue")
+  },
+  {  //新增设备
+    path: "/adduser",
+    name: "Adduser",
+    component: () => import("@/views/Adduser/index.vue")
+  },
+  {  //新增设备
+    path: "/addrole",
+    name: "Addrole",
+    component: () => import("@/views/Addrole/index.vue")
+  },
 ];
 
 const router = new VueRouter({

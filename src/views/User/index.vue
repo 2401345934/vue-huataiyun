@@ -1,17 +1,16 @@
 <template>
-  <div>
-    <router-view>
+  <div class="app">
 
-    </router-view>
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  export default {
-    name: "index"
-  };
+
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
 
 </style>

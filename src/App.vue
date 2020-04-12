@@ -6,7 +6,7 @@
         <van-icon name="wap-nav" v-show="!isNav"/>
         <van-icon name="cross" v-show="isNav"/>
       </div>
-      <div>{{currentName}}</div>
+      <div class="cur">{{currentName}}</div>
       <div class="top-r">
         <van-icon name="user-o" @click="isTopr = !isTopr"/>
         <a-icon type="caret-up"/>
@@ -35,7 +35,7 @@
                 unCheckedChildren="light"
         />
         <br/>
-        <br/> 
+        <br/>
         <a-menu
                 style="width: 222px"
                 :defaultSelectedKeys="['1']"
@@ -73,7 +73,7 @@
 <script>
   import Vue from "vue";
   import { Icon, Sidebar, SidebarItem, Overlay } from "vant";
-  import { mapState } from "vuex";
+  import { mapState , mapGetters , mapMutations } from "vuex";
 
   Vue.use(Overlay);
   Vue.use(Sidebar);
@@ -86,7 +86,6 @@
         activeKey: 0,
         navList: [],
         isNav: false,
-        currentName: "首页",
         childList: [],
         current: "1",
         show: false,
@@ -94,18 +93,20 @@
       };
     },
     computed: {
-      ...mapState("app", ["isApp"])
+      ...mapState("app", ["isApp",]),
+      ...mapGetters("app", ["currentName",])
     },
     methods: {
+      ...mapMutations("app", ["setCurrentName"]),
       handlerSet() {
         this.$router.push("/setuse");
-        this.currentName = "用户设置";
+        this.setCurrentName("用户设置")
         this.isTopr = false;
       },
       handleClick(e) {
         console.log("click ", e);
         this.current = e.key;
-        this.currentName = e.key;
+        this.setCurrentName(e.key)
       },
       handlerPush(item) {
         this.$router.push(item.path);
@@ -127,6 +128,12 @@
 
 
 <style lang="scss" scoped>
+
+  .cur {
+    position: relative;
+    top: -4px;
+  }
+
   .topFade-enter-active, .topFade-leave-active {
     transition: opacity .5s !important;
   }
